@@ -63,34 +63,4 @@ contract SinglyLinkedList {
             cur = userList[cur].next;
         }
     }
-
-    function getUserIndex(uint256 user) public view returns (uint256 index) {
-        uint256 cur = head;
-        while (userList[cur].user != user) {
-            cur = userList[cur].next;
-        }
-
-        if (userList[cur].user == user) {
-            return cur;
-        }
-        
-        return 0;
-    }
-
-    function getUserState(uint256 user) public view returns (uint256[] memory users) {
-        users = new uint256[](2);
-
-        uint256 cur = head;
-        while (userList[cur].user != user) {
-            cur = userList[cur].next;
-        }
-
-        users[0] = userList[cur].user;
-        users[1] = userList[cur].next;
-    }
-
-    function getHead() public view returns(uint256 headInfo) {
-        return head;
-    }
-
 }
